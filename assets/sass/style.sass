@@ -1,0 +1,232 @@
+/** Шрифты **/
+@font-face
+	font-family: 'Love Ya Like A Sister'
+	font-style: normal
+	font-weight: 400
+	src: url('../fonts/eng.woff2') format('woff2')
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+@font-face
+	font-family: 'Neucha'
+	font-style: normal
+	font-weight: 400
+	src: url('../fonts/rus.woff2') format('woff2')
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+
+.h-family-eng
+	font-family: 'Love Ya Like A Sister', sans-serif
+.h-family-rus
+	font-family: 'Neucha'
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+	text-decoration: none !important
+body
+	background-color: #001122
+header
+	position: relative
+	z-index: 3
+main
+	position: relative
+	z-index: 5
+.c-section
+	margin: 150px 0 !important
+/** Волны **/
+.top-bg-liquid
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	height: 280px
+	width: 100%
+	background: url("../img/top-liquid.png") repeat-x
+	background-position: 0 0
+	background-size: 100vw
+	animation: wave 15s linear infinite
+	z-index: 2
+	&--2
+		background: url("../img/top-liquid-2.png") repeat-x
+		animation: unwave 10s linear infinite
+		background-size: 100vw
+		z-index: 1
+.bottom-bg-liquid
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+	height: 280px
+	width: 100%
+	background: url("../img/bottom-liquid.png") repeat-x
+	background-position: 0 bottom
+	background-size: 100vw
+	animation: wave 15s linear infinite
+	z-index: 2
+	&--2
+		background: url("../img/bottom-liquid-2.png") repeat-x
+		background-position: 0 bottom
+		animation: unwave 10s linear infinite
+		background-size: 100vw
+		z-index: 1
+
+@keyframes wave
+	0%
+		background-position-x: 0vw
+	100%
+		background-position-x: 100vw
+@keyframes unwave
+	0%
+		background-position-x: 0vw
+	100%
+		background-position-x: -100vw
+
+/** Навигатор **/
+.c-nav
+	&__item
+		display: block
+		color: #fff
+		text-align: center
+		img
+			border-radius: 5px
+			width: 40px
+			height: 40px
+			&:hover
+				transform: scale(1.2)
+				box-shadow: 0px 0px 5px 3spx rgba(#000, 0.2 )
+		&:hover
+			color: #fff
+			text-shadow: 5px 5px 0px 2px #000
+	&__button
+		width: 30px
+		height: 25px
+		position: relative
+		border: 0
+		outline: none
+		&:focus
+			border: 0
+			outline: 0
+			box-shadow: 0 0 0
+	&__button-item
+		display: block
+		width: 100%
+		height: 5px
+		border-radius: 5px
+		background-color: #fff
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		&:nth-child(2)
+			top: 10px
+		&:nth-child(3)
+			top: 20px
+	&__bar
+		width: 100%
+	&__links
+		margin-left: auto
+
+/** Белый контур **/
+.c-border
+	border: 5px solid #fff
+	position: relative
+
+/** Комплименты **/
+.c-compliments
+	background-color: rgba(#000, 0.3)
+	position: absolute
+	height: 60px
+	width: 100%
+	bottom: 0
+	left: 0
+	right: 0
+	overflow: hidden
+	display: flex
+	&__wrapper
+		width: 100%
+		height: 60px
+		position: absolute
+		display: flex
+		flex-direction: row
+		transition: 1s
+		left: 0
+	&__img
+		object-fit: cover
+		width: 100%
+		max-height: 400px
+	span
+		display: block
+		opacity: 1
+		transition: 1s
+		line-height: 60px
+		width: 100%
+		text-align: center
+
+/** Блок под комплиментами **/
+.c-ps
+	position: absolute
+	display: flex
+	bottom: -160px
+	max-width: 320px
+	&__arrow
+		position: absolute
+		right: 0
+		width: 30px
+
+/** Галерея **/
+.c-gallery
+	&__wrapper
+		display: grid
+		grid-template-columns: 300px 300px 300px
+		gap: 30px
+		align-items: center
+		justify-content: center
+	&__item
+		width: 300px
+		height: 300px
+		border: 5px solid #fff
+		object-fit: cover
+	&__buttons
+		display: none
+		max-width: 330px
+		width: 100%
+		margin: 0 auto
+	&__button
+		width: 150px
+		height: 60px
+		text-transform: uppercase
+		border: 5px solid #fff
+		color: #fff
+		background: transparent
+
+@media screen and (max-width: 991.98px)
+	.c-gallery
+
+		&__wrapper
+			grid-template-columns: 250px 250px
+		&__item
+			width: 250px
+			height: 250px
+
+@media screen and (max-width: 675.98px)
+	.c-gallery
+		width: 330px
+		margin: 0 auto
+		overflow: hidden
+		&__wrapper
+			display: flex
+			justify-content: start
+			width: 100%
+			height: 330px
+			flex-direction: row
+			gap: 0
+			margin: 0 auto
+			transition: 1s
+			transform: translateX(0px)
+			gap: 20px
+			position: relative
+			padding: 0
+		&__item
+			width: 330px
+			height: 330px
+		&__buttons
+			display: flex
